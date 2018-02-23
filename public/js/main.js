@@ -10,6 +10,7 @@ $(function(){  ///mesma coisa que $(document).ready(function(){ });
   inicializaTempo();
   reiniciaJogo();
   comparaTexto();
+  inserePlacar();
 });
 
 

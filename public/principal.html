@@ -19,32 +19,42 @@
       </li>
       <li>
           <i class="small material-icons icones">query_builder</i>
-          <span id="tempo-digitacao">10</span> segundos
+          <span id="tempo-digitacao">1</span> segundos
       </li>
    </ul>
 
 
     <textarea class="campo-digitacao" rows="8" cols="80"></textarea>
+
     <ul class="center">
       <li><span id="contador-letras">0</span> letras</li>
       <li><span id="contador-palavras">0</span> palavras </li>
     </ul>
 
-    <a id="reset" class=" center btn-floating btn-large waves-effect waves-light red">
-      <i class="material-icons">restore</i>
-    </a>
+    <div class="botoes">
+      <a id="reset" class="btn-floating btn-large waves-effect waves-light red">
+          <i class="material-icons">restore</i>
+      </a>
+      <!-- NOVO BOTÃO AQUI -->
+      <a id="botao-placar" class="btn-floating btn-large waves-effect waves-light green">
+          <i class="material-icons">assignment</i>
+      </a>
+    </div>
+    <section class="placar">
+      <table class="centered bordered">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>No. de palavras</th>
+            <th>Remover</th>
+          </tr>
+        </thead>
+        <tbody>
 
-    <table class="centered bordered">
-      <thead>
-        <tr>
-          <th>Nome</th>
-          <th>No. de palavras</th>
-        </tr>
-      </thead>
-      <tbody>
+        </tbody>
+      </table>
 
-      </tbody>
-    </table>
+    </section>
 </div>
     <script src="js/jquery.js"></script>
     <script src="js/main.js"></script>

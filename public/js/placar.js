@@ -1,13 +1,15 @@
-
-
 function inserePlacar() {
-  var corpoTabela = $("table").find("tbody");
+  var corpoTabela = $(".placar").find("tbody");
   var nome = "Max";
   var palavras = $("#contador-palavras").text();
 
   var linha = novaLinha(nome, palavras);
   corpoTabela.append(linha);
   linha.find(".botao-remover").click(removeLinha);
+
+  $(".placar").slideDown(500);
+  scrollPlacar();
+
 }
 
 function novaLinha(nome, palavras) {
@@ -33,5 +35,26 @@ function novaLinha(nome, palavras) {
 
 function removeLinha(event){
     event.preventDefault();
-    $(this).parent().parent().remove();
+    var linha = $(this).parent().parent();
+
+    linha.fadeOut();
+    setTimeout(function() {
+      linha.remove();
+    },1000);
+}
+
+
+$("#botao-placar").click(mostraPlacar);
+
+function mostraPlacar(){
+     $(".placar").stop().slideToggle(600);
+}
+
+function scrollPlacar() {
+    var posicaoPlacar = $(".placar").offset().top;
+
+    $("body").animate(
+    {
+        scrollTop: posicaoPlacar + "px"
+    }, 1000);
 }
