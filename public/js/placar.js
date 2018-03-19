@@ -9,9 +9,10 @@ function inserePlacar() {
 
   $(".placar").slideDown(500);
   scrollPlacar();
-
 }
 
+
+//adiciona uma nova linha de pontos na tabela de pontução
 function novaLinha(nome, palavras) {
   var linha = $("<tr>");
   var colunaNome = $("<td>").text(nome);
@@ -32,7 +33,7 @@ function novaLinha(nome, palavras) {
   return linha;
 }
 
-
+//remove pontuação da tabela
 function removeLinha(event){
     event.preventDefault();
     var linha = $(this).parent().parent();

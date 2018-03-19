@@ -1,4 +1,4 @@
-
+\
 var tempoInicial = $("#tempo-digitacao").text();
 var campo = $(".campo-digitacao");
 var reiniciar = $("#reset");
@@ -10,12 +10,12 @@ $(function(){  ///mesma coisa que $(document).ready(function(){ });
   inicializaTempo();
   reiniciaJogo();
   comparaTexto();
-  inserePlacar();
 });
 
 
 //conta quantos caracteres tem na frase
 function atualizaTamanhoFrase() {
+  var frase = $(".frase").text();
   var numeroPalavras = frase.split(" ").length;
   var tamanhoFrase = $("#tamanho-frase");
   tamanhoFrase.text(numeroPalavras);
@@ -36,8 +36,8 @@ function contagemCaracteres(){
 
 //inciializa o tempo do jogo
 function inicializaTempo(){
-  var tempoRestante = $("#tempo-digitacao").text();
   campo.one("focus", function(){
+    var tempoRestante = $("#tempo-digitacao").text();
     var cronometroID = setInterval(function(){
       tempoRestante--;
       $("#tempo-digitacao").text(tempoRestante);
@@ -72,6 +72,7 @@ function reiniciaJogo(){
 
 function comparaTexto(){
   campo.on("input", function(){
+    var frase = $(".frase").text();
     var digitado = campo.val();
     var comparacao = frase.startsWith(digitado);
     if (comparacao) {
@@ -82,4 +83,9 @@ function comparaTexto(){
       campo.removeClass("borda-verde");
     }
   });
+}
+
+function atualizaTempoInicial(tempo) {
+    tempoInicial = tempo;
+    $("#tempo-digitacao").text(tempo);
 }
