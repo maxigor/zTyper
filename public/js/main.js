@@ -1,4 +1,4 @@
-\
+
 var tempoInicial = $("#tempo-digitacao").text();
 var campo = $(".campo-digitacao");
 var reiniciar = $("#reset");
