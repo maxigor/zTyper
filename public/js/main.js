@@ -89,3 +89,19 @@ function atualizaTempoInicial(tempo) {
     tempoInicial = tempo;
     $("#tempo-digitacao").text(tempo);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
