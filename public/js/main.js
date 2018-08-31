@@ -62,7 +62,7 @@ function reiniciaJogo(){
     $(".campo-digitacao").val("");
     $("#contador-palavras").text("0");
     $("#contador-letras").text("0");
-    campo.toggleClass("campo-desativado");
+    campo.removeClass("campo-desativado");
     campo.attr("disabled", false);
     campo.removeClass("borda-vermelha");
     campo.removeClass("borda-verde");

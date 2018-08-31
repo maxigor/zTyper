@@ -4,7 +4,20 @@ $("#botao-frase").click(function(){
 });
 
 function fraseAleatoria(){
-  $.get("http://localhost:3000/frases", trocaFraseAleatoria);
+
+  $("#spinner").toggle();
+
+  $.get("http://localhost:3000/frases", trocaFraseAleatoria)
+	  .fail(function(){
+	  	let erro = $("#erro");
+	  	erro.toggle();
+	  	setTimeout(function(){
+	  		erro.toggle();
+	  	},2000);
+	  })
+	  .always(function(){
+	  	$("#spinner").toggle();
+	  });
 };
 
 
