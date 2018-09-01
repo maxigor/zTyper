@@ -1,6 +1,6 @@
 $("#botao-frase").click(function(){
-  fraseAleatoria();
   reiniciaJogo();
+  fraseAleatoria();
 });
 
 function fraseAleatoria(){
