@@ -3,6 +3,12 @@ $("#botao-frase").click(function(){
   fraseAleatoria();
 });
 
+var botaoFraseId = $("#botao-frase-id");
+botaoFraseId.on("click", function(){
+	console.log("teste");
+});
+
+
 function fraseAleatoria(){
 
   $("#spinner").toggle();
@@ -30,3 +36,31 @@ function trocaFraseAleatoria(data){
   atualizaTamanhoFrase();
   atualizaTempoInicial(data[numeroAleatorio].tempo);
 }
+
+function escolhaFrase(){
+
+
+
+	$.get("http://local:3000/frases", data)
+	  .fail(function(){
+	  	let erro = $("#erro");
+	  	erro.toggle();
+	  	setTimeout(function(){
+	  		erro.toggle();
+	  	},2000);
+	  })
+	  .always(function(){
+	  	$("#spinner").toggle();
+	  });
+}
+
+
+
+
+
+
+
+
+
+
+
