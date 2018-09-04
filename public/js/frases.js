@@ -5,7 +5,7 @@ $("#botao-frase").click(function(){
 
 var botaoFraseId = $("#botao-frase-id");
 botaoFraseId.on("click", function(){
-	console.log("teste");
+  escolheFrase();
 });
 
 
@@ -15,7 +15,7 @@ function fraseAleatoria(){
 
   $.get("http://localhost:3000/frases", trocaFraseAleatoria)
 	  .fail(function(){
-	  	let erro = $("#erro");
+	  	var erro = $("#erro");
 	  	erro.toggle();
 	  	setTimeout(function(){
 	  		erro.toggle();
@@ -37,13 +37,15 @@ function trocaFraseAleatoria(data){
   atualizaTempoInicial(data[numeroAleatorio].tempo);
 }
 
-function escolhaFrase(){
+function escolheFrase(){
+	var fraseId = $("#frase-id").val();
+	var dados = {
+		id : fraseId
+	};
 
-
-
-	$.get("http://local:3000/frases", data)
+	$.get("http://local:3000/frases", dados, trocaFrase )
 	  .fail(function(){
-	  	let erro = $("#erro");
+	  	var erro = $("#erro");
 	  	erro.toggle();
 	  	setTimeout(function(){
 	  		erro.toggle();
@@ -52,6 +54,16 @@ function escolhaFrase(){
 	  .always(function(){
 	  	$("#spinner").toggle();
 	  });
+
+}
+
+function trocaFrase(data){
+
+	console.log(data);
+
+	frase.text(data[dados].texto);
+	atualizaTempoInicial();
+	atualizaTempoInicial(data[dados.tempo]);
 }
 
 
