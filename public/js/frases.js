@@ -1,12 +1,5 @@
-$("#botao-frase").click(function(){
-  reiniciaJogo();
-  fraseAleatoria();
-});
-
-var botaoFraseId = $("#botao-frase-id");
-botaoFraseId.on("click", function(){
-  escolheFrase();
-});
+$("#botao-frase").click(fraseAleatoria);
+$("#botao-frase-id").click(escolheFrase);
 
 
 function fraseAleatoria(){
@@ -38,32 +31,38 @@ function trocaFraseAleatoria(data){
 }
 
 function escolheFrase(){
+
+	$("#spinner").toggle();
+
 	var fraseId = $("#frase-id").val();
 	var dados = {
-		id : fraseId
+		id: fraseId
 	};
 
-	$.get("http://local:3000/frases", dados, trocaFrase )
+	console.log("a ID sendo buscada é : " + fraseId);
+
+	$.get("http://local:3000/frases", dados, trocaFrase)
 	  .fail(function(){
-	  	var erro = $("#erro");
-	  	erro.toggle();
-	  	setTimeout(function(){
-	  		erro.toggle();
-	  	},2000);
+	  	 $("#erro").toggle();
+        setTimeout(function(){
+            $("#erro").toggle();
+        },2000);
 	  })
 	  .always(function(){
 	  	$("#spinner").toggle();
 	  });
-
 }
 
 function trocaFrase(data){
-
 	console.log(data);
 
-	frase.text(data[dados].texto);
-	atualizaTempoInicial();
-	atualizaTempoInicial(data[dados.tempo]);
+	var frase = $("#frase");
+
+	frase.text(data.texto);
+	atualizaTamanhoFrase();
+	atualizaTamanhoFrase(data.tempo);
+
+
 }
 
 
